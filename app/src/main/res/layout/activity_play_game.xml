@@ -62,8 +62,8 @@
         android:id="@+id/textView"
         android:textStyle="bold"
         android:layout_below="@+id/lbl_compscore"
-        android:layout_alignEnd="@+id/lbl_compscore"
-        android:layout_marginTop="54dp" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffbf50" />
 
     <ImageView
         android:layout_width="wrap_content"

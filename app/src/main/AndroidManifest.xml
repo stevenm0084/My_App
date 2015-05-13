@@ -36,6 +36,14 @@
             android:name=".HighScoresActivity"
             android:label="@string/title_activity_high_scores" >
         </activity>
+        <activity
+            android:name=".EndGameResultActivity"
+            android:label="@string/title_activity_end_game_result"
+            android:parentActivityName=".PlayGameActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.pc1.myapp000.PlayGameActivity" />
+        </activity>
     </application>
 
 </manifest>

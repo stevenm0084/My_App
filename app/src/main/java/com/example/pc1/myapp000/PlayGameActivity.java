@@ -1,5 +1,6 @@
 package com.example.pc1.myapp000;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,7 +42,6 @@ public class PlayGameActivity extends ActionBarActivity {
 
         game = new Game();
 
-
         imgViewRock.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //Log.i(getApplicationContext(), PlayGameActivity.class)l;
@@ -49,6 +49,7 @@ public class PlayGameActivity extends ActionBarActivity {
                 game.setPlayerWeapon("ROCK");
                 game.playRound();
                 updateScore();
+                isGameFinished();
             }
         });
 
@@ -58,6 +59,7 @@ public class PlayGameActivity extends ActionBarActivity {
                 game.setPlayerWeapon("PAPER");
                 game.playRound();
                 updateScore();
+                isGameFinished();
             }
         });
 
@@ -67,6 +69,7 @@ public class PlayGameActivity extends ActionBarActivity {
                 game.setPlayerWeapon("SCISSORS");
                 game.playRound();
                 updateScore();
+                isGameFinished();
             }
         });
 
@@ -76,6 +79,7 @@ public class PlayGameActivity extends ActionBarActivity {
                 game.setPlayerWeapon("LIZARD");
                 game.playRound();
                 updateScore();
+                isGameFinished();
             }
         });
 
@@ -85,8 +89,20 @@ public class PlayGameActivity extends ActionBarActivity {
                 game.setPlayerWeapon("SPOCK");
                 game.playRound();
                 updateScore();
+                isGameFinished();
             }
         });
+    }
+
+    public void isGameFinished(){
+        if(game.isGameFinished() == true){
+            Intent intent = new Intent(this, EndGameResultActivity.class);
+            intent.putExtra("playerScore", game.getPlayerScore());
+            intent.putExtra("cpuScore", game.getCpuScore());
+            intent.putExtra("gameOutcome", game.getGameOutcome());
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void updateScore(){

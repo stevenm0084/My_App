@@ -13,5 +13,6 @@
     <string name="shakeToPlay">Shake To Play</string>
     <string name="soundsToggle">Sounds On/Off</string>
     <string name="chooseWeapon">Choose your Weapon...</string>
+    <string name="title_activity_end_game_result">EndGameResultActivity</string>
 
 </resources>

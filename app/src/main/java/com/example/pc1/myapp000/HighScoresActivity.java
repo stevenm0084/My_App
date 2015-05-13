@@ -1,19 +1,38 @@
 package com.example.pc1.myapp000;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 
 public class HighScoresActivity extends ActionBarActivity {
+
+    private ImageButton btnMainMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_scores);
+
+        btnMainMenu = (ImageButton) findViewById(R.id.imgbtn_main_menu);
     }
 
+    public void setMainMenuButtonHandler(){
+        btnMainMenu.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intentMainMenu = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intentMainMenu);
+                Log.i("EndGameResult", "main menu clicked");
+                finish();
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
