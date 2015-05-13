@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.pc1.myapp000.Settings"
+    android:background="#ff27c2ff"
+    android:onClick="donePressed">
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shakeToPlay"
+        android:id="@+id/swtch_shaketoplay"
+        android:layout_marginTop="97dp"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:layout_below="@+id/swtch_sounds"
+        android:layout_alignEnd="@+id/swtch_sounds"
+        android:textColor="#ff000000" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/soundsToggle"
+        android:id="@+id/swtch_sounds"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:layout_marginTop="121dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#ff000000" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_done"
+        android:src="@drawable/done"
+        android:background="#ff27c2ff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:clickable="false"
+        android:onClick="donePressed" />
+
+</RelativeLayout>

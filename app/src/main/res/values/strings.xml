@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">My App000</string>
+    <string name="app_name">RPSLS_CP3307</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_play_game">PlayGameActivity</string>
+    <string name="play_game">Play Game</string>
+    <string name="view_highscores">View Highscores</string>
+    <string name="exit_game">Exit</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_high_scores">HighScoresActivity</string>
+    <string name="shakeToPlay">Shake To Play</string>
+    <string name="soundsToggle">Sounds On/Off</string>
+    <string name="chooseWeapon">Choose your Weapon...</string>
 
 </resources>

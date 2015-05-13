@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.pc1.myapp000.PlayGameActivity"
+    android:background="#ff27c2ff">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgview_player"
+        android:src="@drawable/player"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/imgview_computer" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgview_computer"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/computer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/lbl_playerscore"
+        android:textStyle="bold"
+        android:textSize="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_toEndOf="@+id/imgview_player"
+        android:layout_alignTop="@+id/imgview_player" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/lbl_compscore"
+        android:textStyle="bold"
+        android:textSize="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/lbl_playerscore" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/imgplay_lizard"
+        android:src="@drawable/lizard"
+        android:layout_alignTop="@+id/imgplay_paper"
+        android:layout_toStartOf="@+id/imgplay_spock" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/chooseWeapon"
+        android:id="@+id/textView"
+        android:textStyle="bold"
+        android:layout_below="@+id/lbl_compscore"
+        android:layout_alignEnd="@+id/lbl_compscore"
+        android:layout_marginTop="54dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgplay_paper"
+        android:src="@drawable/paper"
+        android:layout_above="@+id/imgplay_rock"
+        android:layout_toStartOf="@+id/imgplay_scissors"
+        android:layout_marginBottom="39dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgplay_rock"
+        android:src="@drawable/rock"
+        android:layout_above="@+id/imgplay_scissors"
+        android:layout_alignStart="@+id/imgview_player" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgplay_scissors"
+        android:src="@drawable/scissors"
+        android:layout_marginBottom="53dp"
+        android:layout_above="@+id/imgview_player"
+        android:layout_toStartOf="@+id/lbl_playerscore" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgplay_spock"
+        android:src="@drawable/spock"
+        android:layout_alignTop="@+id/imgplay_rock"
+        android:layout_alignStart="@+id/lbl_playerscore" />
+</RelativeLayout>

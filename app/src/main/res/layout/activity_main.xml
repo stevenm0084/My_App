@@ -3,6 +3,63 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:weightSum="1"
+    android:background="#ff27c2ff">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_snglplaygame"
+        android:src="@drawable/single_play"
+        android:background="#ff27c2ff"
+        android:layout_above="@+id/imgbtn_twoplaygame"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="37dp"
+        android:layout_alignEnd="@+id/imgbtn_twoplaygame"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_twoplaygame"
+        android:src="@drawable/two_player"
+        android:background="#ff27c2ff"
+        android:layout_above="@+id/imgbtn_about"
+        android:layout_marginBottom="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/imgbtn_about"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_highscores"
+        android:src="@drawable/about"
+        android:background="#ff27c2ff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_about"
+        android:src="@drawable/high_scores"
+        android:background="#ff27c2ff"
+        android:layout_above="@+id/imgbtn_highscores"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="35dp"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rock-Paper-Scissors-Lizard-Spock"
+        android:id="@+id/title_mainmenu"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="30dp" />
 
 </RelativeLayout>
