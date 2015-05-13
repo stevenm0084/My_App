@@ -18,7 +18,7 @@ public class HighScoresOpenHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        setup(database);
+        setup(database);//ddd
     }
 
     @Override
