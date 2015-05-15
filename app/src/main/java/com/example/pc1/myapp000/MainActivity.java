@@ -10,15 +10,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 /*
  - Button images created courtesy of http://dabuttonfactory.com/
  - Game images used courtesy of
  - Title texts created courtesy of http://cooltext.com*/
 
 public class MainActivity extends ActionBarActivity {
-    ImageButton imgBtnSnglPlayGame, imgBtnTwoPlayGame, imgBtnHighScores, imgBtnAbout;
+    private ImageButton imgBtnSnglPlayGame;
+    private ImageButton imgBtnTwoPlayGame;
+    private ImageButton imgBtnHighScores;
+    private ImageButton imgBtnAbout;
+
     TextView title;
 
     @Override
@@ -68,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Log.i(MainActivity.class.getName(), "HighScores Activity called");
-                Intent intentHighScoresGame = new Intent();
+                Intent intentHighScoresGame = new Intent(getApplicationContext(), HighScoresActivity.class);
                 startActivity(intentHighScoresGame);
 
             }

@@ -7,17 +7,23 @@
     android:weightSum="1"
     android:background="#ff27c2ff">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rock-Paper-Scissors-Lizard-Spock"
+        android:id="@+id/title_mainmenu"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imgbtn_snglplaygame"
         android:src="@drawable/single_play"
         android:background="#ff27c2ff"
-        android:layout_above="@+id/imgbtn_twoplaygame"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="37dp"
-        android:layout_alignEnd="@+id/imgbtn_twoplaygame"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/title_mainmenu"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -25,41 +31,27 @@
         android:id="@+id/imgbtn_twoplaygame"
         android:src="@drawable/two_player"
         android:background="#ff27c2ff"
-        android:layout_above="@+id/imgbtn_about"
-        android:layout_marginBottom="32dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/imgbtn_about"
-        android:layout_alignParentEnd="true" />
+        android:layout_above="@+id/imgbtn_highscores"
+        android:layout_alignStart="@+id/imgbtn_snglplaygame"
+        android:layout_marginBottom="48dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imgbtn_highscores"
-        android:src="@drawable/about"
+        android:src="@drawable/high_scores"
         android:background="#ff27c2ff"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_above="@+id/imgbtn_about"
+        android:layout_alignStart="@+id/imgbtn_twoplaygame"
+        android:layout_marginBottom="44dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imgbtn_about"
-        android:src="@drawable/high_scores"
-        android:background="#ff27c2ff"
-        android:layout_above="@+id/imgbtn_highscores"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="35dp"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rock-Paper-Scissors-Lizard-Spock"
-        android:id="@+id/title_mainmenu"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="30dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/imgbtn_highscores"
+        android:src="@drawable/about"
+        android:background="#ff27c2ff" />
 
 </RelativeLayout>
