@@ -13,15 +13,20 @@ import android.util.Log;
  */
 public class HighScoresOpenHelper extends SQLiteOpenHelper{
 
+    private static final String DATABASE_NAME = "Highscores";
+    private static final String TABLE_HIGHSCORES = "Highscores";
+    private static final int DATABASE_VERSION = 1;
+
+
     public HighScoresOpenHelper(Context context){
 
-        super(context, "HighScores", null, 1);
-        System.out.println("HighScoresOpenHelper: insert 2nd");
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase database) {
-        Log.d("HighScoresOpenHelper: ", "DATABASE COMPLETE BUILD");
+        Log.i("HighScoresOpenHelper: ", "DATABASE COMPLETE BUILD");
         setup(database);//ddd
     }
 
@@ -32,15 +37,15 @@ public class HighScoresOpenHelper extends SQLiteOpenHelper{
 
     public void setup(SQLiteDatabase database){
         database.execSQL("DROP TABLE IF EXISTS HighScores;");
-        database.execSQL("CREATE TABLE HighScores" + " (name TEXT, score TEXT, datetime TEXT);");
+        database.execSQL("CREATE TABLE " + TABLE_HIGHSCORES + " (name TEXT, score TEXT, datetime TEXT);");
 
         Time now = new Time();
         now.setToNow();
-        System.out.println("HighScoresOpenHelper: insert 1st");
-        String insertString = "INSERT INTO HighScores" + " (name, score, datetime)" + " VALUES ('Bob', '3', '3:30pm');";
+        Log.i("HighScoresOpenHelper: ", "DATABASE INSERTED 1 ITEM");
+        String insertString = "INSERT INTO " + DATABASE_NAME + " (name, score, datetime)" + " VALUES ('Bob', '3', '3:30pm');";
         database.execSQL(insertString);
 
-        System.out.println("HighScoresOpenHelper: insert 2nd");
+        Log.i("HighScoresOpenHelper: ", "DATABASE INSERTED 2nd ITEM");
         insertString = "INSERT INTO HighScores" + " (name, score, datetime)" + " VALUES ('Sam', '2', '3:30pm');";
         database.execSQL(insertString);
 

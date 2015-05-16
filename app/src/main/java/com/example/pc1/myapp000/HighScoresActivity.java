@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -21,23 +20,42 @@ public class HighScoresActivity extends ActionBarActivity {
     private HighScoresOpenHelper highScoresOpenHelper;
     private ArrayAdapter<String> highscores;
     private ListView listViewHighscores;
+    private static final String DATABASE_NAME = "Highscores";
+    private static final String TABLE_HIGHSCORES = "Highscores";
+    private String name;
+    private String score;
+    private Intent intentEndGameResult;
 
+    private int playerScore;
+    private String playerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_scores);
+
+        //get player name and score from previous activity bundle
+        intentEndGameResult = getIntent();
+        playerName = intentEndGameResult.getStringExtra("playerName");
+        playerScore = intentEndGameResult.getIntExtra("playerScore", 1);
+
+
+
         //setup array adapter
         highscores = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
 
         listViewHighscores = (ListView) findViewById(R.id.listView_highscores);
         listViewHighscores.setAdapter(highscores);
 
-        btnMainMenu = (ImageButton) findViewById(R.id.imgbtn_main_menu);
+        btnMainMenu = (ImageButton) findViewById(R.id.imgbtn_playagain);
 
         highScoresOpenHelper = new HighScoresOpenHelper(this);
 
         SQLiteDatabase db = highScoresOpenHelper.getReadableDatabase();
+
+        //Add name and scores to db
+        String insertString = "INSERT INTO " + DATABASE_NAME + " (name, score, datetime)" + " VALUES ('" + playerName + "', '" + playerScore + "', '3:30pm');";
+        db.execSQL(insertString);
 
         Cursor cursor = db.query(true, "Highscores", null, null, null, null, null, null, null);
 

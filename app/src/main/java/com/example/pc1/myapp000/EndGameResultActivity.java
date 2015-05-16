@@ -3,34 +3,45 @@ package com.example.pc1.myapp000;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.view.ViewGroup;
 
 
 public class EndGameResultActivity extends ActionBarActivity {
 
-    private int playerScore;
-    private int cpuScore;
     private Game.WinLoseOutcome gameOutcome;
     private TextView result;
     private ImageButton btnPlayAgain;
     private ImageButton btnMainMenu;
     private ImageButton btnHighScores;
+    private EditText editTxtPlayerName;
+
+    private ViewGroup layoutWonGame;
+
+    private int playerScore;
+    private int cpuScore;
+    private String playerName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_end_game_result);
+        //setContentView(R.layout.activity_end_game_lost);
+        setContentView(R.layout.activity_end_game_won);
+
 
         result = (TextView) findViewById(R.id.txtview_result);
-        btnPlayAgain = (ImageButton) findViewById(R.id.imgbtn_play_again);
-        btnMainMenu = (ImageButton) findViewById(R.id.imgbtn_main_menu);
-        btnHighScores = (ImageButton) findViewById(R.id.imgbtn_high_scores);
+        btnPlayAgain = (ImageButton) findViewById(R.id.imgbtn_submit);
+        btnMainMenu = (ImageButton) findViewById(R.id.imgbtn_playagain);
+        btnHighScores = (ImageButton) findViewById(R.id.imgbtn_highscores);
 
         setMainMenuButtonHandler();
         setHighScoresButtonHandler();
@@ -43,6 +54,10 @@ public class EndGameResultActivity extends ActionBarActivity {
         Game.WinLoseOutcome gameOutcome = (Game.WinLoseOutcome) intent.getSerializableExtra("gameOutcome");
 
         checkWhoWon();
+
+    }
+
+    public void wonGame(){
 
     }
 
@@ -60,10 +75,14 @@ public class EndGameResultActivity extends ActionBarActivity {
     public void setHighScoresButtonHandler(){
         btnHighScores.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                playerName = editTxtPlayerName.getText().toString();
                 Intent intentHighScores = new Intent(getApplicationContext(), HighScoresActivity.class);
+                intentHighScores.putExtra("playerName", playerName);
+                intentHighScores.putExtra("playerScore", playerScore);
+                Log.i("EndGameResult", "high scores clicked");
                 startActivity(intentHighScores);
                 finish();
-                Log.i("EndGameResult", "high scores clicked");
+
             }
         });
     }
