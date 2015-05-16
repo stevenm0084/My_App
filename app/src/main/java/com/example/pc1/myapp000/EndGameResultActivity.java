@@ -43,7 +43,7 @@ public class EndGameResultActivity extends ActionBarActivity {
         btnMainMenu = (ImageButton) findViewById(R.id.imgbtn_playagain);
         btnHighScores = (ImageButton) findViewById(R.id.imgbtn_highscores);
 
-        setMainMenuButtonHandler();
+        setSubmitButtonHandler();
         setHighScoresButtonHandler();
         setBtnPlayAgainButtonHandler();
 
@@ -61,12 +61,14 @@ public class EndGameResultActivity extends ActionBarActivity {
 
     }
 
-    public void setMainMenuButtonHandler(){
+    public void setSubmitButtonHandler() {
         btnMainMenu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intentMainMenu = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intentMainMenu);
-                Log.i("EndGameResult", "main menu clicked");
+                playerName = editTxtPlayerName.getText().toString();
+                Intent intentHighScores = new Intent(getApplicationContext(), HighScoresActivity.class);
+                intentHighScores.putExtra("playerName", playerName);
+                intentHighScores.putExtra("playerScore", playerScore);
+                Log.i("EndGameResult", "high scores clicked");
                 finish();
             }
         });

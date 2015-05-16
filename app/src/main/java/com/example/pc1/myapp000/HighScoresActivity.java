@@ -56,6 +56,7 @@ public class HighScoresActivity extends ActionBarActivity {
         //Add name and scores to db
         String insertString = "INSERT INTO " + DATABASE_NAME + " (name, score, datetime)" + " VALUES ('" + playerName + "', '" + playerScore + "', '3:30pm');";
         db.execSQL(insertString);
+        Log.i("HighScores", "DATABASE UPDATED");
 
         Cursor cursor = db.query(true, "Highscores", null, null, null, null, null, null, null);
 
