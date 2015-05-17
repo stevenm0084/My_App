@@ -1,10 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.pc1.myapp000.PlayGameActivity"
+    tools:context="com.example.pc1.myapp000.EndOfRoundActivity"
     android:background="#ff27c2ff">
 
     <ImageView
@@ -46,59 +48,41 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/lbl_playerscore" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:id="@+id/imgplay_lizard"
-        android:src="@drawable/lizard"
-        android:layout_alignTop="@+id/imgplay_paper"
-        android:layout_toStartOf="@+id/imgplay_spock"
-        android:layout_alignBottom="@+id/imgplay_paper"
-        android:layout_alignEnd="@+id/lbl_compscore" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/chooseWeapon"
         android:id="@+id/result_explaination"
         android:textStyle="bold"
         android:textColor="#ffffbf50"
-        android:layout_below="@+id/imgview_computer"
+        android:layout_below="@+id/cpu_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="81dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cpu_image"
+        android:layout_below="@+id/lbl_compscore"
         android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imgplay_paper"
-        android:src="@drawable/paper"
-        android:layout_above="@+id/imgplay_rock"
-        android:layout_toStartOf="@+id/imgplay_scissors"
-        android:layout_marginBottom="39dp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imgplay_rock"
-        android:src="@drawable/rock"
-        android:layout_above="@+id/imgplay_scissors"
-        android:layout_alignStart="@+id/imgview_player" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imgplay_scissors"
-        android:src="@drawable/scissors"
-        android:layout_marginBottom="53dp"
+        android:id="@+id/player_image"
         android:layout_above="@+id/imgview_player"
-        android:layout_toStartOf="@+id/lbl_playerscore" />
+        android:layout_marginBottom="49dp"
+        android:layout_alignStart="@+id/cpu_image" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imgplay_spock"
-        android:src="@drawable/spock"
-        android:layout_alignTop="@+id/imgplay_rock"
-        android:layout_alignStart="@+id/lbl_playerscore" />
+        android:id="@+id/next_round"
+        android:src="@drawable/next_round"
+        android:background="#ff27c2ff"
+        android:layout_above="@+id/imgview_player"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>

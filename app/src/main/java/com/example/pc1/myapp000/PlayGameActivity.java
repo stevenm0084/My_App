@@ -3,22 +3,31 @@ package com.example.pc1.myapp000;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.Random;
 
 
 public class PlayGameActivity extends ActionBarActivity {
 
     //private Weapons weapons;
-    private ImageView imgViewRock, imgViewPaper, imgViewScissors, imgViewLizzard, imgViewSpock;
-    private TextView playerScore, cpuScore;
+    private ImageView imgViewRock;
+    private ImageView imgViewPaper;
+    private ImageView imgViewScissors;
+    private ImageView imgViewLizzard;
+    private ImageView imgViewSpock;
+
+
+    private TextView txtPlayerScore, txtCpuScore;
+    private ImageView playerImage;
+    private ImageView cpuImage;
+    private TextView resultExplaination;
+    private ImageButton imgBtnNextRound;
+
 
     private Game game;
 
@@ -31,14 +40,20 @@ public class PlayGameActivity extends ActionBarActivity {
     }
 
     private void setUpVariables() {
+
+        playerImage = (ImageView) findViewById(R.id.player_image);
+        cpuImage = (ImageView) findViewById(R.id.cpu_image);
+        resultExplaination = (TextView) findViewById(R.id.result_explaination);
+        imgBtnNextRound = (ImageButton) findViewById(R.id.next_round);
+
         imgViewRock = (ImageView) findViewById(R.id.imgplay_rock);
         imgViewPaper = (ImageView) findViewById(R.id.imgplay_paper);
         imgViewScissors = (ImageView) findViewById(R.id.imgplay_scissors);
         imgViewLizzard = (ImageView) findViewById(R.id.imgplay_lizard);
         imgViewSpock = (ImageView) findViewById(R.id.imgplay_spock);
 
-        playerScore = (TextView) findViewById(R.id.lbl_playerscore);
-        cpuScore = (TextView) findViewById(R.id.lbl_compscore);
+        txtPlayerScore = (TextView) findViewById(R.id.lbl_playerscore);
+        txtCpuScore = (TextView) findViewById(R.id.lbl_compscore);
 
         game = new Game();
 
@@ -49,6 +64,7 @@ public class PlayGameActivity extends ActionBarActivity {
                 game.setPlayerWeapon("ROCK");
                 game.playRound();
                 updateScore();
+                setContentView(R.layout.activity_end_of_round);
                 isGameFinished();
             }
         });
@@ -59,6 +75,7 @@ public class PlayGameActivity extends ActionBarActivity {
                 game.setPlayerWeapon("PAPER");
                 game.playRound();
                 updateScore();
+                setContentView(R.layout.activity_end_of_round);
                 isGameFinished();
             }
         });
@@ -69,6 +86,7 @@ public class PlayGameActivity extends ActionBarActivity {
                 game.setPlayerWeapon("SCISSORS");
                 game.playRound();
                 updateScore();
+                setContentView(R.layout.activity_end_of_round);
                 isGameFinished();
             }
         });
@@ -79,6 +97,7 @@ public class PlayGameActivity extends ActionBarActivity {
                 game.setPlayerWeapon("LIZARD");
                 game.playRound();
                 updateScore();
+                setContentView(R.layout.activity_end_of_round);
                 isGameFinished();
             }
         });
@@ -89,16 +108,31 @@ public class PlayGameActivity extends ActionBarActivity {
                 game.setPlayerWeapon("SPOCK");
                 game.playRound();
                 updateScore();
+                setContentView(R.layout.activity_end_of_round);
                 isGameFinished();
             }
         });
+
+        imgBtnNextRound.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //Toast.makeText(getApplicationContext(), "You selected Spock", Toast.LENGTH_SHORT).show();
+                //game.setPlayerWeapon("SPOCK");
+                //game.playRound();
+                updateScore();
+                setContentView(R.layout.activity_play_game);
+                //isGameFinished();
+
+            }
+        });
+
     }
+
 
     public void isGameFinished(){
         if(game.isGameFinished() == true){
             Intent intent = new Intent(this, EndGameResultActivity.class);
-            intent.putExtra("playerScore", game.getPlayerScore());
-            intent.putExtra("cpuScore", game.getCpuScore());
+            intent.putExtra("txtPlayerScore", game.getPlayerScore());
+            intent.putExtra("txtCpuScore", game.getCpuScore());
             intent.putExtra("gameOutcome", game.getGameOutcome());
             startActivity(intent);
             finish();
@@ -107,8 +141,8 @@ public class PlayGameActivity extends ActionBarActivity {
 
     public void updateScore(){
 
-        playerScore.setText(Integer.toString(game.getPlayerScore()));
-        cpuScore.setText(Integer.toString(game.getCpuScore()));
+        txtPlayerScore.setText(Integer.toString(game.getPlayerScore()));
+        txtCpuScore.setText(Integer.toString(game.getCpuScore()));
     }
 
     @Override

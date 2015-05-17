@@ -19,7 +19,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imgbtn_snglplaygame"
+        android:id="@+id/host_game"
         android:src="@drawable/single_play"
         android:background="#ff27c2ff"
         android:layout_below="@+id/title_mainmenu"
@@ -28,11 +28,11 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imgbtn_twoplaygame"
+        android:id="@+id/join_game"
         android:src="@drawable/two_player"
         android:background="#ff27c2ff"
         android:layout_above="@+id/imgbtn_highscores"
-        android:layout_alignStart="@+id/imgbtn_snglplaygame"
+        android:layout_alignStart="@+id/host_game"
         android:layout_marginBottom="48dp" />
 
     <ImageButton
@@ -41,14 +41,14 @@
         android:id="@+id/imgbtn_highscores"
         android:src="@drawable/high_scores"
         android:background="#ff27c2ff"
-        android:layout_above="@+id/imgbtn_about"
-        android:layout_alignStart="@+id/imgbtn_twoplaygame"
+        android:layout_above="@+id/main_menu"
+        android:layout_alignStart="@+id/join_game"
         android:layout_marginBottom="44dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imgbtn_about"
+        android:id="@+id/main_menu"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/imgbtn_highscores"
         android:src="@drawable/about"

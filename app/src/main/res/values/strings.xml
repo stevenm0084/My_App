@@ -15,5 +15,7 @@
     <string name="chooseWeapon">Choose your Weapon...</string>
     <string name="title_activity_end_game_result">EndGameResultActivity</string>
     <string name="enter_name">Enter Name:</string>
+    <string name="title_activity_game_lobby">GameLobbyActivity</string>
+    <string name="title_activity_end_of_round">EndOfRoundActivity</string>
 
 </resources>

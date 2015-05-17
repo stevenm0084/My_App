@@ -39,7 +39,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void addOnSnglPlayGameHandler() {
-        imgBtnSnglPlayGame = (ImageButton) findViewById(R.id.imgbtn_snglplaygame);
+        imgBtnSnglPlayGame = (ImageButton) findViewById(R.id.host_game);
         imgBtnSnglPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,15 +51,17 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void addOnTwoPlayGameHandler() {
-        imgBtnTwoPlayGame = (ImageButton) findViewById(R.id.imgbtn_twoplaygame);
+        imgBtnTwoPlayGame = (ImageButton) findViewById(R.id.join_game);
         imgBtnTwoPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(MainActivity.class.getName(), "TwoPlayer game Activity called");
 
-                Intent intentTwoPlayGame = new Intent(getApplicationContext(), Play2PlayerGameActivity.class);
+               /* Intent intentTwoPlayGame = new Intent(getApplicationContext(), Play2PlayerGameActivity.class);
                 startActivity(intentTwoPlayGame);
-
+*/
+                Intent intentTwoPlayGame = new Intent(getApplicationContext(), MultiplayerMenuActivity.class);
+                startActivity(intentTwoPlayGame);
             }
         });
     }
@@ -78,7 +80,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void addOnViewAboutAppHandler() {
-        imgBtnAbout = (ImageButton) findViewById(R.id.imgbtn_about);
+        imgBtnAbout = (ImageButton) findViewById(R.id.main_menu);
         imgBtnAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

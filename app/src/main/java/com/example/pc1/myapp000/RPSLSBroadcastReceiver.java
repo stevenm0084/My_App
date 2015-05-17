@@ -36,6 +36,8 @@ public class RPSLSBroadcastReceiver extends BroadcastReceiver {
             int state = intent.getIntExtra(WifiP2pManager.EXTRA_WIFI_STATE, -1);
             if (state == WifiP2pManager.WIFI_P2P_STATE_ENABLED) {
                 //Toast.makeText(mActivity, "WIFI IS ENABLED", Toast.LENGTH_LONG).show();
+                // mActivity.setIsWifiP2pEnabled(true);
+
                 Log.i("BROADCASTRECEIVER", "WIFI IS ENABLED");
             } else {
                 Log.i("BROADCASTRECEIVER", "WIFI IS NOT ENABLED");
@@ -44,6 +46,12 @@ public class RPSLSBroadcastReceiver extends BroadcastReceiver {
 
         } else if (WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION.equals(action)) {
             // Call WifiP2pManager.requestPeers() to get a list of current peers
+            if (mManager != null) {
+                //  mManager.requestPeers(mChannel, peerListListener);
+            }
+            //Log.d(WiFiDirectActivity.TAG, "P2P peers changed");
+
+
         } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
             // Respond to new connection or disconnections
         } else if (WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION.equals(action)) {
