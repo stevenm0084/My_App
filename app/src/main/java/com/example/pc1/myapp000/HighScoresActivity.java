@@ -39,8 +39,6 @@ public class HighScoresActivity extends ActionBarActivity {
         playerName = intentEndGameResult.getStringExtra("playerName");
         playerScore = intentEndGameResult.getIntExtra("playerScore", 1);
 
-
-
         //setup array adapter
         highscores = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
 

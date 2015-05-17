@@ -57,7 +57,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Log.i(MainActivity.class.getName(), "TwoPlayer game Activity called");
 
-                Intent intentTwoPlayGame = new Intent();
+                Intent intentTwoPlayGame = new Intent(getApplicationContext(), Play2PlayerGameActivity.class);
                 startActivity(intentTwoPlayGame);
 
             }

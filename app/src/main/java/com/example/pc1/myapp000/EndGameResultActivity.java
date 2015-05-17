@@ -3,12 +3,10 @@ package com.example.pc1.myapp000;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -21,7 +19,10 @@ public class EndGameResultActivity extends ActionBarActivity {
     private TextView result;
     private ImageButton btnPlayAgain;
     private ImageButton btnMainMenu;
+    private ImageButton btnsubmit;
     private ImageButton btnHighScores;
+    private ImageButton btnPlayAgan;
+
     private EditText editTxtPlayerName;
 
     private ViewGroup layoutWonGame;
@@ -37,20 +38,21 @@ public class EndGameResultActivity extends ActionBarActivity {
         //setContentView(R.layout.activity_end_game_lost);
         setContentView(R.layout.activity_end_game_won);
 
-
         result = (TextView) findViewById(R.id.txtview_result);
-        btnPlayAgain = (ImageButton) findViewById(R.id.imgbtn_submit);
-        btnMainMenu = (ImageButton) findViewById(R.id.imgbtn_playagain);
+        btnsubmit = (ImageButton) findViewById(R.id.btn_submit);
+        btnPlayAgan = (ImageButton) findViewById(R.id.imgbtn_playagain);
         btnHighScores = (ImageButton) findViewById(R.id.imgbtn_highscores);
+
+        editTxtPlayerName = (EditText) findViewById(R.id.playername);
 
         setSubmitButtonHandler();
         setHighScoresButtonHandler();
-        setBtnPlayAgainButtonHandler();
+        //setPlayAgainButtonHandler();
 
         Intent intent = getIntent();
 
-        int playerScore = intent.getIntExtra("playerScore", 1);
-        int cpuScore = intent.getIntExtra("cpuScore", 1);
+        playerScore = intent.getIntExtra("playerScore", 1);
+        cpuScore = intent.getIntExtra("cpuScore", 1);
         Game.WinLoseOutcome gameOutcome = (Game.WinLoseOutcome) intent.getSerializableExtra("gameOutcome");
 
         checkWhoWon();
@@ -62,17 +64,31 @@ public class EndGameResultActivity extends ActionBarActivity {
     }
 
     public void setSubmitButtonHandler() {
-        btnMainMenu.setOnClickListener(new View.OnClickListener() {
+        btnsubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 playerName = editTxtPlayerName.getText().toString();
+                Log.i("EndGameResult", "high scores clicked. Name = " + playerName + " Score = " + playerScore);
+
                 Intent intentHighScores = new Intent(getApplicationContext(), HighScoresActivity.class);
                 intentHighScores.putExtra("playerName", playerName);
                 intentHighScores.putExtra("playerScore", playerScore);
-                Log.i("EndGameResult", "high scores clicked");
+
+                startActivity(intentHighScores);
                 finish();
             }
         });
     }
+
+    /*public void setPlayAgainButtonHandler(){
+        btnPlayAgain.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intentPlayAgain = new Intent(getApplicationContext(), PlayGameActivity.class);
+                startActivity(intentPlayAgain);
+                finish();
+                Log.i("EndGameResult", " play again clicked");
+            }
+        });
+    }*/
 
     public void setHighScoresButtonHandler(){
         btnHighScores.setOnClickListener(new View.OnClickListener() {
@@ -84,31 +100,19 @@ public class EndGameResultActivity extends ActionBarActivity {
                 Log.i("EndGameResult", "high scores clicked");
                 startActivity(intentHighScores);
                 finish();
-
             }
         });
     }
 
-    public void setBtnPlayAgainButtonHandler(){
-        btnPlayAgain.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intentPlayAgain = new Intent(getApplicationContext(), PlayGameActivity.class);
-                startActivity(intentPlayAgain);
-                finish();
-                Log.i("EndGameResult", " play again clicked");
-            }
-        });
-    }
 
     private void checkWhoWon() {
         if(gameOutcome == Game.WinLoseOutcome.WIN){
-
             this.result.setText("YOU WIN!");
-        } else if(gameOutcome == Game.WinLoseOutcome.TIE){
 
+        } else if (gameOutcome == Game.WinLoseOutcome.TIE) {
             this.result.setText("GAME TIED!");
-        } else{
 
+        } else {
             this.result.setText("YOU LOSE!");
         }
         updateDataBase();

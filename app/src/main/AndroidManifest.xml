@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pc1.myapp000" >
 
+    <uses-sdk android:minSdkVersion="14" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -37,6 +45,9 @@
             android:label="@string/title_activity_high_scores" >
         </activity>
         <activity
+            android:name=".Play2PlayerGameActivity"
+            android:label="@string/title_activity_play_game"></activity>
+        <activity
             android:name=".EndGameResultActivity"
             android:label="@string/title_activity_end_game_result"
             android:parentActivityName=".PlayGameActivity" >
@@ -44,6 +55,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.pc1.myapp000.PlayGameActivity" />
         </activity>
+
+
     </application>
 
 </manifest>

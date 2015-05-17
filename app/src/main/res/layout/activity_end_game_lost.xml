@@ -27,14 +27,14 @@
         android:id="@+id/imgbtn_playagain"
         android:src="@drawable/main_menu"
         android:background="#ff27c2ff"
-        android:layout_below="@+id/imgbtn_submit"
-        android:layout_alignStart="@+id/imgbtn_submit"
+        android:layout_below="@+id/btn_submit"
+        android:layout_alignStart="@+id/btn_submit"
         android:layout_marginTop="39dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imgbtn_submit"
+        android:id="@+id/btn_submit"
         android:src="@drawable/play_again"
         android:background="#ff27c2ff"
         android:layout_centerVertical="true"
